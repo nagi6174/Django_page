@@ -1,24 +1,30 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>投票アプリ</title>
+    <link rel="stylesheet" href="{% static 'main/css/detail.css' %}">
 </head>
 <body>
-    <form action="{% url 'vote' question.id %}" method="POST">  {# URL vote に、question の id と form での処理（POST）を渡す #}
-    {% csrf_token %}  
-        <div>
-            <h1>{{ question.question_text }}</h1>
-            {% for choice in question.choices.all %}  {# question の choice の数だけループする #}
-                <input type="radio" name="choice" id="choice{{ choice.id }}" value="{{ choice.id }}">  {# ラジオボタン #}
-                <label for="choice{{ choice.id }}">{{ choice.choice_text }}</label><br>
-            {% endfor %}
+    <form class="vote-form" action="{% url 'vote' question.id %}" method="POST">
+        {% csrf_token %}
+        <div class="vote-content">
+            <h1 class="vote-question">{{ question.question_text }}</h1>
+
             {% if error_message %}
-                <p><strong>{{ error_message }}</strong></p>
+            <p class="error-message"><strong>{{ error_message }}</strong></p>
             {% endif %}
+
+            {% for choice in question.choices.all %}
+            <div class="choice-option">
+                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+            </div>
+            {% endfor %}
         </div>
-        <input type="submit" value="Vote">
+        <input class="vote-button" type="submit" value="Vote">
     </form>
-    <a href="{% url 'index' %}">トップへ戻る</a>
+    <a class="back-link" href="{% url 'index' %}">トップへ戻る</a>
 </body>
 </html>

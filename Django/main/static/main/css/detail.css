@@ -1,0 +1,58 @@
+body{
+    background-color:rgb(245, 245, 245);
+}
+
+.vote-form {
+    width: 800px;
+    margin: 0 auto ;
+    background-color:rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.vote-question {
+    font-size:20px;
+    color: rgb(44, 62, 80);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.error-message {
+    color: rgb(231, 76, 60);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.choice-option {
+    margin: 10px 0;
+}
+
+.choice-option input[type="radio"] {
+    margin-right: 8px;
+    accent-color: rgb(46, 204, 113);
+}
+
+.vote-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: rgb(46, 204, 113);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-link {
+    display: block;
+    width: 800px;
+    margin: 20px 0;
+    text-align:center;
+    background-color: rgb(236, 240, 241);
+    color: rgb(44, 62, 80);
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+}
