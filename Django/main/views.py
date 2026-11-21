@@ -30,3 +30,10 @@ def vote(request, question_id):
         selected_choice.votes += 1
         selected_choice.save()
         return redirect('detail', question.id)
+
+def results(request, question_id):
+    question = Question.objects.get(pk=question_id)
+    context = {
+        "question": question,
+    }
+    return render(request, "main/results.html", context)

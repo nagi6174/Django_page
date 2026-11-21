@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>投票アプリ</title>
+</head>
+<body>
+    <h1>{{ question.question_text }}</h1>
+    <ul>
+    {% for choice in question.choices.all %}
+        <li>{{ choice.choice_text }}：{{ choice.votes }} 票</li>
+    {% endfor %}
+    </ul>
+    <a href="{% url 'detail' question.id %}">もう一度投票する</a>
+</body>
+</html>
