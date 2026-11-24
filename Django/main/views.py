@@ -29,7 +29,7 @@ def vote(request, question_id):
     else:
         selected_choice.votes += 1
         selected_choice.save()
-        return redirect('detail', question.id)
+        return redirect('results', question.id)
 
 def results(request, question_id):
     question = Question.objects.get(pk=question_id)
