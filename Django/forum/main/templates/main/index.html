@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>掲示板アプリ</title>
+</head>
+
+<body>
+    <h1>Forum</h1>
+    <h2>各掲示板へのリンク</h2>
+    {% for topic in topics %}
+        <a href="">{{ topic.name }}</a>
+    {% endfor %}
+</body>
+
+</html>
